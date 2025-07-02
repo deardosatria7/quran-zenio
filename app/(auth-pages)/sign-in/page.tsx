@@ -25,7 +25,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
           Sign in
         </h1>
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 mb-6 px-4">
-          Masuk ke ai.zenio.id atau{" "}
+          Masuk ke quran.zenio.id atau{" "}
           <Link
             href="/sign-up"
             className="text-blue-600 dark:text-blue-400 font-medium hover:underline"

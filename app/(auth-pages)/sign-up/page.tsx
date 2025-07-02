@@ -36,7 +36,7 @@ export default async function Signup(props: {
             Sign up
           </h1>
           <p className="text-sm text-center text-muted-foreground dark:text-gray-400">
-            Daftarkan akun baru ke ai.zenio.id
+            Daftarkan akun baru ke quran.zenio.id
           </p>
 
           <div className="flex flex-col gap-5 mt-6">
