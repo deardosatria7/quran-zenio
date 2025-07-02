@@ -42,7 +42,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-black hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-200 text-white dark:text-black px-8 py-3 text-lg"
+                  className="bg-black hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-200 text-white dark:text-black px-8 py-3 text-sm"
                 >
                   <Link href={"/chat"}>
                     <MessageCircle className="w-5 h-5 mr-2" />
@@ -52,7 +52,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-8 py-3 text-lg"
+                  className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-8 py-3 text-sm"
                 >
                   Learn More
                 </Button>

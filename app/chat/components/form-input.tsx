@@ -72,7 +72,7 @@ export default function FormInput() {
           <Button
             onClick={handleSubmit}
             disabled={loading || !message.trim()}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-700 dark:hover:bg-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg text-white"
             size="lg"
           >
             {loading ? (

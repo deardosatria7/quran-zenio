@@ -5,7 +5,7 @@ import HeaderAuth from "@/components/header-auth";
 
 export default function ChatPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-emerald-950 dark:via-gray-900 dark:to-teal-950">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-teal-50 dark:from-neutral-950 dark:via-gray-900 dark:to-teal-950">
       <div className="container mx-auto px-4 py-6 max-w-4xl">
         <div className="mb-6 flex justify-between">
           <BackButton />
