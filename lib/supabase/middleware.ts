@@ -40,13 +40,13 @@ export const updateSession = async (request: NextRequest) => {
     const requestedPath = request.nextUrl.pathname;
 
     // protected routes
-    if (requestedPath.startsWith("/dashboard") && user.error) {
+    if (requestedPath.startsWith("/chat") && user.error) {
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
-    if (requestedPath === "/" && !user.error) {
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
+    // if (requestedPath === "/" && !user.error) {
+    //   return NextResponse.redirect(new URL("/chat", request.url));
+    // }
 
     return response;
   } catch (e) {

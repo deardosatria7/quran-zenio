@@ -25,7 +25,7 @@ export default async function Signup(props: {
 
   //if there is user, redirect to home
   if (user) {
-    return redirect("/dashboard");
+    return redirect("/chat");
   }
 
   return (

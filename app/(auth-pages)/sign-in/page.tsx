@@ -16,7 +16,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
 
   //if there is user, redirect to home
   if (user) {
-    return redirect("/dashboard");
+    return redirect("/chat");
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black p-4">
