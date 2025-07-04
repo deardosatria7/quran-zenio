@@ -12,7 +12,7 @@ export default function ChatPage() {
           <HeaderAuth />
         </div>
 
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 mt-16">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
             Curhat dengan Al-Qur'an
           </h1>

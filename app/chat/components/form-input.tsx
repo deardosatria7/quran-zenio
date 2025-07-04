@@ -10,7 +10,7 @@ import { Loader2, Send, BookOpen, Heart } from "lucide-react";
 
 export default function FormInput() {
   const [message, setMessage] = useState("");
-  const [result, setResult] = useState<string | null>(null);
+  const [result, setResult] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -23,7 +23,7 @@ export default function FormInput() {
 
     try {
       const response = await axios.post("/api/openai", { message });
-      setResult(response.data.reply);
+      setResult(response.data);
     } catch (error) {
       console.error(error);
       const msg =
@@ -60,7 +60,7 @@ export default function FormInput() {
               placeholder="Tulis curhatanmu di sini... (Tekan Enter untuk mengirim, Shift+Enter untuk baris baru)"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyPress}
               className="min-h-[140px] resize-none border-emerald-200 dark:border-emerald-800 focus:border-emerald-400 dark:focus:border-emerald-600 transition-colors"
               disabled={loading}
             />
@@ -119,9 +119,31 @@ export default function FormInput() {
           <CardContent>
             <div className="prose prose-emerald dark:prose-invert max-w-none">
               <div className="bg-white/60 dark:bg-gray-800/60 rounded-lg p-6 border border-emerald-100 dark:border-emerald-800">
-                <p className="text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line text-base">
-                  {result}
-                </p>
+                {result.translation && (
+                  <div className="mb-4 text-sm italic text-gray-700 dark:text-gray-300">
+                    <span className="font-semibold text-emerald-600 dark:text-emerald-300">
+                      Terjemahan curhat:
+                    </span>{" "}
+                    “{result.translation}”
+                  </div>
+                )}
+
+                {result.results?.map((ayah: any, idx: any) => (
+                  <div
+                    key={ayah.id}
+                    className="mb-6 p-4 rounded-md border border-emerald-100 dark:border-emerald-800 bg-white/60 dark:bg-gray-800/60"
+                  >
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                      Surah {ayah.surah_name_english} • Ayat {ayah.aya_number}
+                    </p>
+                    <p className="text-xl font-semibold text-gray-900 dark:text-white leading-snug mb-2">
+                      {ayah.arabic_clean}
+                    </p>
+                    <p className="text-base text-gray-800 dark:text-gray-200">
+                      {ayah.english_translation}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -138,7 +160,9 @@ export default function FormInput() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => navigator.clipboard.writeText(result)}
+                onClick={() =>
+                  navigator.clipboard.writeText(JSON.stringify(result, null, 4))
+                }
                 className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-700 dark:text-emerald-300 dark:hover:bg-emerald-900/20"
               >
                 Salin Jawaban
